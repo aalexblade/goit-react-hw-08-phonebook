@@ -1,4 +1,6 @@
-import { useAddContactMutation } from 'redux/contactsSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { addContact } from 'redux/contacts/contactsOperations';
+
 import {
   NameForm,
   FormLabel,
@@ -6,14 +8,15 @@ import {
   SubmitBtn,
 } from './ContactForm.styled';
 import React, { useState } from 'react';
-import { useGetContactsQuery } from 'redux/contactsSlice';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
 
-  const [addContact] = useAddContactMutation();
-  const { data: contacts } = useGetContactsQuery();
+  const dispatch = useDispatch();
+  const contacts = useSelector(state => state.contacts.contacts);
 
   const handleNameChange = e => {
     const { value, name } = e.currentTarget;
@@ -22,8 +25,8 @@ export const ContactForm = () => {
       case 'name':
         setName(value);
         break;
-      case 'phone':
-        setPhone(value);
+      case 'number':
+        setNumber(value);
         break;
 
       default:
@@ -35,46 +38,59 @@ export const ContactForm = () => {
     evt.preventDefault();
 
     if (contacts.find(contact => contact.name === name)) {
-      return window.alert(`${name} is already in contacts.`);
+      
+      return toast.warn(`${name} is already in contacts.`, {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
     }
 
-    addContact({ name, phone });
+    dispatch(addContact({ name, number }));
 
     reset();
   };
 
   const reset = () => {
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
   return (
-    <NameForm onSubmit={handleSubmitBtn}>
-      <FormLabel>
-        Name
-        <FormInput
-          type="text"
-          name="name"
-          value={name}
-          onChange={handleNameChange}
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-        />
-      </FormLabel>
-      <FormLabel>
-        Number
-        <FormInput
-          type="tel"
-          name="phone"
-          value={phone}
-          onChange={handleNameChange}
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-        />
-      </FormLabel>
-      <SubmitBtn type="submit">Add contact</SubmitBtn>
-    </NameForm>
+    <>
+      <h2>Add Contact</h2>
+      <NameForm onSubmit={handleSubmitBtn}>
+        <FormLabel>
+          Name
+          <FormInput
+            type="text"
+            name="name"
+            value={name}
+            onChange={handleNameChange}
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            required
+          />
+        </FormLabel>
+        <FormLabel>
+          Number
+          <FormInput
+            type="tel"
+            name="number"
+            value={number}
+            onChange={handleNameChange}
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            required
+          />
+        </FormLabel>
+        <SubmitBtn type="submit">Add contact</SubmitBtn>
+      </NameForm>
+    </>
   );
 };
