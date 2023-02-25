@@ -1,22 +1,23 @@
-import { Navigation } from '@mui/icons-material';
 import { AuthNav } from 'components/AuthNav/AuthNav';
-import { AppBarWrapper, Toolbar } from './AppBar.styled';
+import { Navigation } from 'components/Navigation/Navigation';
 import { UserMenu } from 'components/UserMenu/UserMenu';
-import { Container } from '@mui/material';
 import { useAuth } from 'hooks/useAuth';
+import { AppBarWrapper, ToolBar } from './AppBar.styled';
+import { Container } from '@mui/material';
 
 export const AppBar = () => {
-    const { isLoggedIn } = useAuth();
+  const { isLoggedIn } = useAuth();
 
-    return (
-        <AppBarWrapper position="static">
-            <Container maxWidth="xl">
-                <Toolbar disableGutters>
+  return (
+    <AppBarWrapper position="static">
+      <Container maxWidth="xl">
+        <ToolBar disableGutters>
 
-                    <Navigation />
-                    {isLoggedIn ? <UserMenu /> : <AuthNav />}
-                </Toolbar>
-            </Container>
-        </AppBarWrapper>
-    );
+          <Navigation />
+          {isLoggedIn ? <UserMenu /> : <AuthNav />}
+
+        </ToolBar>
+      </Container>
+    </AppBarWrapper>
+  );
 };

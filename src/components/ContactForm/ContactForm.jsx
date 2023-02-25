@@ -38,7 +38,7 @@ export const ContactForm = () => {
     evt.preventDefault();
 
     if (contacts.find(contact => contact.name === name)) {
-      
+     
       return toast.warn(`${name} is already in contacts.`, {
         position: 'top-right',
         autoClose: 3000,

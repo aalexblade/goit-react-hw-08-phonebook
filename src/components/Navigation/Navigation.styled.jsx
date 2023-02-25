@@ -28,10 +28,10 @@ export const NavItem = styled(NavLink)`
   color: #fff;
   font-weight: 500;
   &.active {
-    color: #7f68a8;
+    color: #81d4fa;
   }
   :hover,
   :active {
-    color: #7f68a8;
+    color: #81d4fa;
   }
 `;

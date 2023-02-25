@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const ListBtn = styled.button`
   display: block;
   background-color: #038bfa;
-  color: #fff;
+  color: #ffffff;
   border: none;
   width: 130px;
   height: 34px;
@@ -35,7 +35,7 @@ export const ContactInfo = styled.p`
 `;
 
 export const ModalWrapper = styled.div`
-  background-color: #a7b8d7;
+  background-color: #449be2;
   text-align: center;
   padding: 16px;
   border-radius: 18px;
@@ -49,7 +49,7 @@ export const BtnWrapper = styled.div`
 
 export const ModalBtn = styled.button`
   display: block;
-  background-color:  #038bfa;
+  background-color: #038bfa;
   color: #fff;
   border: none;
   width: 100px;

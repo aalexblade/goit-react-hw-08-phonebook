@@ -71,8 +71,6 @@ export const UserMenu = () => {
           </MenuItem>
         </Menu>
       </Box>
-
-     
     </MenuWrapper>
   );
 };

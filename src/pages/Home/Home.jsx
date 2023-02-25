@@ -3,7 +3,6 @@ import {
   HeroTitle,
   HeroWrapper,
   InfoWrapper,
-  Info,
   BtnList,
   RegisterInfo,
   HeroBtn,
@@ -16,17 +15,12 @@ export default function Home() {
     <HeroWrapper>
       <HeroTitle>
         Welcome to PhoneBook{' '}
-        <span role="img" aria-label="Greeting icon">
-          💁‍♀️
-        </span>
+        {/* <span role="img" aria-label="Greeting icon">
+          💻
+        </span> */}
       </HeroTitle>
       <InfoWrapper>
-        <Info>
-          Our app will make your life easier and save your contacts more
-          convenient thanks to cloud storage. Therefore, you can access your
-          contacts wherever you are and from any device.
-        </Info>
-        <div>
+          <div>
           <RegisterInfo>
             To use the application, you need to log in or register. To quickly
             check the functionality, you can log in with a test login. <br />
@@ -47,4 +41,4 @@ export default function Home() {
       </InfoWrapper>
     </HeroWrapper>
   );
-};
+}

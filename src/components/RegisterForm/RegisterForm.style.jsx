@@ -20,13 +20,14 @@ export const FormWrapper = styled.form`
 export const FormInput = styled(TextField)`
   width: 220px;
   background-color: #fff;
+
   @media screen and (min-width: 700px) {
     width: 300px;
   }
 `;
 
 export const FormTitle = styled.h2`
-  color: #212b27;
+  color: #2b2122;
   margin: 0px;
   font-size: 32px;
   text-align: center;
@@ -34,7 +35,7 @@ export const FormTitle = styled.h2`
 
 export const FormInfo = styled.p`
   margin: 0;
-  color: #32403b;
+  color: #323440;
   width: 260px;
   font-size: 13px;
   line-height: 1.30;
@@ -53,7 +54,7 @@ export const FormBtn = styled.button`
   border-radius: 8px;
   cursor: pointer;
   :hover {
-    background-color: #038bfa;
+    background-color: #2196F3;
     box-shadow: 0px 0px 12px -2px rgb(0 0 0 / 50%);
   }
 `;

@@ -2,8 +2,8 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const AuthNavWrapper = styled.div`
-    display: flex;
-    gap: 12px;
+  display: flex;
+  gap: 12px;
 `;
 
 export const AuthNavLink = styled(NavLink)`
@@ -12,9 +12,9 @@ export const AuthNavLink = styled(NavLink)`
   font-weight: 500;
   :hover,
   :active {
-    color: #038bfa;
+    color: #c6cbe2;
   }
   &.active {
-    color: #038bfa;
+    color: #81d4fa;
   }
 `;

@@ -1,3 +1,4 @@
+// import { NavLink } from 'react-router-dom';
 import { useAuth } from 'hooks/useAuth';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import { NavWrapper, HomeLogo, NavItem, LogoText } from './Navigation.styled';
@@ -12,7 +13,7 @@ export const Navigation = () => {
         <LogoText
           variant="h6"
           noWrap
-          style={{ textDecoration: 'none', color: '#fff', fontSize: '24px' }}
+          style={{ textDecoration: 'none', color: '#ffffff', fontSize: '24px' }}
           href="/"
           sx={{
             mr: 2,

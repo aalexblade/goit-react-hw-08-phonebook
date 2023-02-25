@@ -46,14 +46,16 @@ export const SubmitBtn = styled.button`
 export const PhoneBookWrapper = styled.div`
   padding-left: 24px;
   padding-right: 24px;
-  color: #ffffff;
+  color: #fff;
   display: flex;
   flex-direction: column;
   gap: 20px;
+
   @media screen and (min-width: 700px) {
     gap: 100px;
     flex-direction: row;
   }
+
   @media screen and (min-width: 900px) {
     gap: 230px;
   }
