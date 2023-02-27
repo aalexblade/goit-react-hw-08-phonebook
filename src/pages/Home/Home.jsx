@@ -24,8 +24,8 @@ export default function Home() {
           <RegisterInfo>
             To use the application, you need to log in or register. To quickly
             check the functionality, you can log in with a test login. <br />
-            Login: qwetest@qwe.com <br />
-            Password: qweqwe123
+            Login:  world@hello.com <br />
+            Password: qweqweqwe
           </RegisterInfo>
           {!isLoggedIn && (
             <BtnList>
